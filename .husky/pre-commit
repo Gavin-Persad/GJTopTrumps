@@ -1,0 +1,3 @@
+#!/bin/sh
+# lint here not test
+echo "Ready To Push"
