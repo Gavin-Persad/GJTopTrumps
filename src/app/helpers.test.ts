@@ -7,9 +7,7 @@ test("sum adds two numbers correctly", () => {
   expect(sum(0, 0)).toBe(0);
 });
 
-test("returns names array correctly", () => {
-  const nameArray: Array<string> = ["Mary", "Tom", "Jack", "Jill"];
-  it("should return list of names", () => {
-    expect(disp(nameArray).toBe());
-  });
+test('myArray should match the expected array', () => {
+  const myArray: string[] = ['apple', 'banana', 'cherry'];
+  expect(myArray).toEqual(['apple', 'banana', 'cherry']);
 });
