@@ -26,3 +26,8 @@ export function disp(arr_names: string[]) {
   }
   return names;
 }
+
+export function arrayLength(arr: string[]) {
+  const length: number = arr.length;
+  return length;
+}
