@@ -2,11 +2,11 @@ export function sum(a: number, b: number): number {
   return a + b;
 }
 
-export function shuffleAndSplitCards(data: []) {
-  const shuffledData = [...data].sort(() => Math.random() - 0.5);
+export function shuffleAndSplitCards(data: number[]) {
+  const shuffledData: number[] = [...data].sort(() => Math.random() - 0.5);
 
-  const player: [] = [];
-  const computer: [] = [];
+  const player: number[] = [];
+  const computer: number[] = [];
 
   for (let i = 0; i < shuffledData.length; i++) {
     if (i % 2 === 0) {
