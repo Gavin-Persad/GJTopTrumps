@@ -14,5 +14,5 @@ test("myArray should match the expected array", () => {
 
 test("returns correct array length", () => {
   const myArray: string[] = ["apple", "banana", "cherry"];
-  expect(arrayLength(myArray).toBe(3));
+  expect(arrayLength(myArray)).toBe(3);
 });
