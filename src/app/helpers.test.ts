@@ -1,5 +1,5 @@
 import { sum } from "./helpers";
-import { disp, arrayLength, shuffleAndSplitCards } from "./helpers";
+import { arrayLength, shuffleAndSplitCards } from "./helpers";
 
 test("sum adds two numbers correctly", () => {
   expect(sum(1, 2)).toBe(3);
