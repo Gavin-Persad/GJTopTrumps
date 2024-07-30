@@ -42,18 +42,27 @@ const Game = () => {
     // display 1st player card
   }, []);
 
+  function handleClick() {
+    console.log(playerCards);
+  }
+
   return (
     <div>
-      <Card
-        playerData={playerCards[0]}
-        statTitle1={statTitles.statTitle1}
-        statTitle2={statTitles.statTitle2}
-        statTitle3={statTitles.statTitle3}
-        statTitle4={statTitles.statTitle4}
-        statTitle5={statTitles.statTitle5}
-        statTitle6={statTitles.statTitle6}
-        statTitle7={statTitles.statTitle7}
-      />
+      <button onClick={handleClick}>click</button>
+      {playerCards.length > 0 ? (
+        <Card
+          playerData={playerCards[0]}
+          statTitle1={statTitles.statTitle1}
+          statTitle2={statTitles.statTitle2}
+          statTitle3={statTitles.statTitle3}
+          statTitle4={statTitles.statTitle4}
+          statTitle5={statTitles.statTitle5}
+          statTitle6={statTitles.statTitle6}
+          statTitle7={statTitles.statTitle7}
+        />
+      ) : (
+        "empty"
+      )}
     </div>
   );
 };

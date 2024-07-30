@@ -263,7 +263,7 @@ export function shuffleAndSplitCards(data: Object[]) {
       computer.push(shuffledData[i]);
     }
   }
-  console.log(player);
+  // console.log(player);
   return { playerCards: player, computerCards: computer };
 }
 
