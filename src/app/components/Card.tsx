@@ -56,23 +56,39 @@ const Card: React.FC<Props> = ({
           <p>{footballPlayerData.facts.country}</p>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-2 place-items-center">
-        <p>Overall</p>
-        <p>{footballPlayerData.rating}</p>
-        <p>{statTitle1}</p>
-        <p>{footballPlayerData.attributes.stat1}</p>
-        <p>{statTitle2}</p>
-        <p>{footballPlayerData.attributes.stat2}</p>
-        <p>{statTitle3}</p>
-        <p>{footballPlayerData.attributes.stat3}</p>
-        <p>{statTitle4}</p>
-        <p>{footballPlayerData.attributes.stat4}</p>
-        <p>{statTitle5}</p>
-        <p>{footballPlayerData.attributes.stat5}</p>
-        <p>{statTitle6}</p>
-        <p>{footballPlayerData.attributes.stat6}</p>
-        <p>{statTitle7}</p>
-        <p>{footballPlayerData.attributes.stat7}</p>
+      <div className="grid grid-cols-2 gap-2">
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>Overall</p>
+          <p>{footballPlayerData.rating}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle1}</p>
+          <p>{footballPlayerData.attributes.stat1}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle2}</p>
+          <p>{footballPlayerData.attributes.stat2}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle3}</p>
+          <p>{footballPlayerData.attributes.stat3}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle4}</p>
+          <p>{footballPlayerData.attributes.stat4}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle5}</p>
+          <p>{footballPlayerData.attributes.stat5}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle6}</p>
+          <p>{footballPlayerData.attributes.stat6}</p>
+        </button>
+        <button className="flex justify-between bg-slate-50 p-2 rounded">
+          <p>{statTitle7}</p>
+          <p>{footballPlayerData.attributes.stat7}</p>
+        </button>
       </div>
     </div>
   );
