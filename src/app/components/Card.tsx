@@ -1,7 +1,25 @@
 import React from "react";
 import Image from "next/image";
 
-const Card = (props: {}) => {
+interface Props {
+  statTitle1: string;
+  statTitle2: string;
+  statTitle3: string;
+  statTitle4: string;
+  statTitle5: string;
+  statTitle6: string;
+  statTitle7: string;
+}
+
+const Card: React.FC<Props> = ({
+  statTitle1,
+  statTitle2,
+  statTitle3,
+  statTitle4,
+  statTitle5,
+  statTitle6,
+  statTitle7,
+}) => {
   return (
     <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg">
       <div className="flex gap-4">
@@ -26,19 +44,19 @@ const Card = (props: {}) => {
       <div className="grid grid-cols-4 gap-2 place-items-center">
         <p>Overall</p>
         <p>90</p>
-        <p>Shooting</p>
+        <p>{statTitle1}</p>
         <p>78</p>
-        <p>Passing</p>
+        <p>{statTitle2}</p>
         <p>67</p>
-        <p>Defending</p>
+        <p>{statTitle3}</p>
         <p>78</p>
-        <p>Dribbling</p>
+        <p>{statTitle4}</p>
         <p>90</p>
-        <p>Tackling</p>
+        <p>{statTitle5}</p>
         <p>78</p>
-        <p>Heading</p>
+        <p>{statTitle6}</p>
         <p>67</p>
-        <p>Pace</p>
+        <p>{statTitle7}</p>
         <p>78</p>
       </div>
     </div>
