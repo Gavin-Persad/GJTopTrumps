@@ -1,12 +1,9 @@
+// test helper functions
 export function sum(a: number, b: number): number {
   return a + b;
 }
 
-interface shuffledCards {
-  playerCards: playerCard[];
-  computerCards: playerCard[];
-}
-
+// interface for player card
 interface playerCard {
   id: number;
   name: string;
@@ -29,13 +26,16 @@ interface playerCard {
   };
 }
 
+// shuffle and split cards  (player and computer)
 export function shuffleAndSplitCards(data: playerCard[]) {
+  // shuffle cards
   const shuffledData: playerCard[] = [...data].sort(() => Math.random() - 0.5);
  
-
+  // create player and computer card arrays
   const player: playerCard[] = [];
   const computer: playerCard[] = [];
 
+  // split shuffled cards into player and computer arrays
   for (let i = 0; i < shuffledData.length; i++) {
     if (i % 2 === 0) {
       player.push(shuffledData[i]);
@@ -43,20 +43,7 @@ export function shuffleAndSplitCards(data: playerCard[]) {
       computer.push(shuffledData[i]);
     }
   }
-  // console.log(player);
+ 
+  // return player and computer card arrays
   return { playerCards: player, computerCards: computer };
-}
-
-export function disp(arr_names: string[]) {
-  var names: string[] = [];
-
-  for (var i = 0; i < arr_names.length; i++) {
-    names.push(arr_names[i]);
-  }
-  return names;
-}
-
-export function arrayLength(arr: string[]) {
-  const length: number = arr.length;
-  return length;
 }

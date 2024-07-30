@@ -27,10 +27,10 @@ const Game = () => {
       stat7: number;
     };
   }
-  interface shuffledCards {
-    playerCards: playerCard[];
-    computerCards: playerCard[];
-  }
+  // interface shuffledCards {
+  //   playerCards: playerCard[];
+  //   computerCards: playerCard[];
+  // }
   const [playerCards, setPlayerCards] = useState<playerCard[]>([]);
   const [computerCards, setComputerCards] = useState<playerCard[]>([]);
   // on page load useEffect[], shuffle (x) cards
@@ -42,13 +42,9 @@ const Game = () => {
     // display 1st player card
   }, []);
 
-  function handleClick() {
-    console.log(playerCards);
-  }
 
   return (
     <div>
-      <button onClick={handleClick}>click</button>
       {playerCards.length > 0 ? (
         <Card
           playerData={playerCards[0]}
