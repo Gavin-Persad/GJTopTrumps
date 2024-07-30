@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <main className="">
       <Card
+        footballPlayerData={footballPlayerData[3]}
         statTitle1={statTitles.statTitle1}
         statTitle2={statTitles.statTitle2}
         statTitle3={statTitles.statTitle3}
