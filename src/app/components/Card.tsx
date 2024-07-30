@@ -9,7 +9,7 @@ interface Props {
   statTitle5: string;
   statTitle6: string;
   statTitle7: string;
-  footballPlayerData: {
+  playerData: {
     id: number;
     name: string;
     facts: {
@@ -40,54 +40,54 @@ const Card: React.FC<Props> = ({
   statTitle5,
   statTitle6,
   statTitle7,
-  footballPlayerData,
+  playerData,
 }) => {
   return (
     <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg">
       <div className="flex gap-4">
-        <h1 className="flex-1 text-2xl">{footballPlayerData.name}</h1>
-        <p className="text-2xl">{footballPlayerData.facts.position}</p>
-        <p className="text-2xl">{footballPlayerData.facts.age}</p>
+        <h1 className="flex-1 text-2xl">{playerData.name}</h1>
+        <p className="text-2xl">{playerData.facts.position}</p>
+        <p className="text-2xl">{playerData.facts.age}</p>
       </div>
       <div className="relative h-64 w-full">
-        <img src={footballPlayerData.image} className="h-full w-full"></img>
+        <img src={playerData.image} className="h-full w-full"></img>
         <div className="absolute bottom-0 right-0 flex gap-4 m-2">
-          <p className="">{footballPlayerData.facts.club}</p>
-          <p>{footballPlayerData.facts.country}</p>
+          <p className="">{playerData.facts.club}</p>
+          <p>{playerData.facts.country}</p>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>Overall</p>
-          <p>{footballPlayerData.rating}</p>
+          <p>{playerData.rating}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle1}</p>
-          <p>{footballPlayerData.attributes.stat1}</p>
+          <p>{playerData.attributes.stat1}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle2}</p>
-          <p>{footballPlayerData.attributes.stat2}</p>
+          <p>{playerData.attributes.stat2}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle3}</p>
-          <p>{footballPlayerData.attributes.stat3}</p>
+          <p>{playerData.attributes.stat3}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle4}</p>
-          <p>{footballPlayerData.attributes.stat4}</p>
+          <p>{playerData.attributes.stat4}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle5}</p>
-          <p>{footballPlayerData.attributes.stat5}</p>
+          <p>{playerData.attributes.stat5}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle6}</p>
-          <p>{footballPlayerData.attributes.stat6}</p>
+          <p>{playerData.attributes.stat6}</p>
         </button>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle7}</p>
-          <p>{footballPlayerData.attributes.stat7}</p>
+          <p>{playerData.attributes.stat7}</p>
         </button>
       </div>
     </div>

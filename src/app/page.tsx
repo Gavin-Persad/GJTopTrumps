@@ -1,4 +1,5 @@
 import Card from "./components/Card";
+import Game from "./game";
 import { footballPlayerData, statTitles } from "./playerData";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
 
   return (
     <main className="">
-      <Card
+      <Game />
+      {/* <Card
         footballPlayerData={footballPlayerData[3]}
         statTitle1={statTitles.statTitle1}
         statTitle2={statTitles.statTitle2}
@@ -17,7 +19,7 @@ export default function Home() {
         statTitle5={statTitles.statTitle5}
         statTitle6={statTitles.statTitle6}
         statTitle7={statTitles.statTitle7}
-      />
+      /> */}
     </main>
   );
 }

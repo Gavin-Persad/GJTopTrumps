@@ -18,7 +18,7 @@ test("returns correct array length", () => {
 });
 
 test("checking shuffled array length", () => {
-  const mockData: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const mockData: number[] = [{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}];
   const shuffledDeck = shuffleAndSplitCards(mockData);
   expect(shuffledDeck.playerCards.length).toBe(5);
   expect(shuffledDeck.computerCards.length).toBe(5);
