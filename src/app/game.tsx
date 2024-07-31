@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { shuffleAndSplitCards } from "./helpers";
 import { footballPlayerData, statTitles } from "./playerData";
+import databaseCards from "../../playerDatabase.json";
 
 const Game = () => {
   interface playerCard {
@@ -35,13 +36,13 @@ const Game = () => {
   const [computerCards, setComputerCards] = useState<playerCard[]>([]);
   // on page load useEffect[], shuffle (x) cards
   useEffect(() => {
-    const allShuffledCards = shuffleAndSplitCards(footballPlayerData);
+    // const stringifiedData = JSON.parse(databaseCards);
+    const allShuffledCards = shuffleAndSplitCards(databaseCards);
     // assign player and computer cards (state arrays)
     setPlayerCards(allShuffledCards.playerCards);
     setComputerCards(allShuffledCards.computerCards);
     // display 1st player card
   }, []);
-
 
   return (
     <div>

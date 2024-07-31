@@ -31,12 +31,12 @@ interface StatTitles {
 }
 
 export const statTitles: StatTitles = {
-  statTitle1: "Attacking",
-  statTitle2: "Defending",
-  statTitle3: "Skill",
-  statTitle4: "Movement",
-  statTitle5: "Power",
-  statTitle6: "Mentality",
+  statTitle1: "Attacking", // pace
+  statTitle2: "Defending", // defending
+  statTitle3: "Skill", // dribbling
+  statTitle4: "Movement", // passing
+  statTitle5: "Power", // physicality
+  statTitle6: "Mentality", // shooting
   statTitle7: "Goalkeeping",
 };
 

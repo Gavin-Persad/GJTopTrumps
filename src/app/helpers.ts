@@ -30,7 +30,7 @@ interface playerCard {
 export function shuffleAndSplitCards(data: playerCard[]) {
   // shuffle cards
   const shuffledData: playerCard[] = [...data].sort(() => Math.random() - 0.5);
- 
+
   // create player and computer card arrays
   const player: playerCard[] = [];
   const computer: playerCard[] = [];
@@ -43,7 +43,7 @@ export function shuffleAndSplitCards(data: playerCard[]) {
       computer.push(shuffledData[i]);
     }
   }
- 
+
   // return player and computer card arrays
   return { playerCards: player, computerCards: computer };
 }
