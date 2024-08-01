@@ -1,4 +1,6 @@
 import Game from "./game";
+import 'dotenv/config'
+
 // import { footballPlayerData, statTitles } from "./playerData";
 import { updateDB } from "./updateDB";
 

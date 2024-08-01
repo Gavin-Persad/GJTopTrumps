@@ -1,4 +1,6 @@
 import fs from "fs";
+import 'dotenv/config'
+
 
 export async function updateDB() {
   let response = await fillDatabaseWithPlayers("male", 20);
@@ -15,7 +17,7 @@ export async function updateDB() {
 }
 
 // function to fill database with choice of gender and how many cards
-const API_KEY = "0e17b684-37b5-40fb-9c4a-ebe7373df100";
+const API_KEY = "";
 async function fillDatabaseWithPlayers(gender, totalNum) {
   let pageCount = 48;
   let playerCount = 0;

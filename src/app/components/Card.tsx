@@ -45,15 +45,18 @@ const Card: React.FC<Props> = ({
   const [playerClubSrc, setPlayerClubSrc] = useState<string>("");
   const [playerNationSrc, setPlayerNationSrc] = useState<string>("");
 
-  const API_KEY = "0e17b684-37b5-40fb-9c4a-ebe7373df100";
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY as string;
 
   useEffect(() => {
     const fetchImage = async (id: number, imageType: string) => {
+      const headers: HeadersInit = {
+        "X-AUTH-TOKEN": API_KEY // replace with your actual auth token
+      };
       try {
         const response = await fetch(
           `https://futdb.app/api/${imageType}/${id}/image`,
           {
-            headers: { "X-AUTH-TOKEN": API_KEY },
+            headers: headers
           }
         ); // Replace with your API endpoint
         if (!response.ok) {
