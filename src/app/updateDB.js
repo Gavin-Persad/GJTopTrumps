@@ -66,7 +66,6 @@ async function fillDatabaseWithPlayers(gender, totalNum) {
                 stat4: data.items[i].passing,
                 stat5: data.items[i].physicality,
                 stat6: data.items[i].shooting,
-                stat7: 83,
               },
             });
             playerCount++;

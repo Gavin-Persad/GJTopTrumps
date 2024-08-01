@@ -16,7 +16,6 @@ interface FootballPlayer {
     stat4: number;
     stat5: number;
     stat6: number;
-    stat7: number;
   };
 }
 
@@ -27,17 +26,15 @@ interface StatTitles {
   statTitle4: string;
   statTitle5: string;
   statTitle6: string;
-  statTitle7: string;
 }
 
 export const statTitles: StatTitles = {
-  statTitle1: "Attacking", // pace
+  statTitle1: "Pace", // pace
   statTitle2: "Defending", // defending
-  statTitle3: "Skill", // dribbling
-  statTitle4: "Movement", // passing
-  statTitle5: "Power", // physicality
-  statTitle6: "Mentality", // shooting
-  statTitle7: "Goalkeeping",
+  statTitle3: "Dribbling", // dribbling
+  statTitle4: "Passing", // passing
+  statTitle5: "Physicality", // physicality
+  statTitle6: "Shooting", // shooting
 };
 
 // export const footballPlayerData: FootballPlayer[] = [

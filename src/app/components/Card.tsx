@@ -7,7 +7,6 @@ interface Props {
   statTitle4: string;
   statTitle5: string;
   statTitle6: string;
-  statTitle7: string;
   playerData: {
     id: number;
     name: string;
@@ -26,7 +25,6 @@ interface Props {
       stat4: number;
       stat5: number;
       stat6: number;
-      stat7: number;
     };
   };
 }
@@ -38,7 +36,6 @@ const Card: React.FC<Props> = ({
   statTitle4,
   statTitle5,
   statTitle6,
-  statTitle7,
   playerData,
 }) => {
   const [playerImageSrc, setPlayerImageSrc] = useState<string>("");
@@ -135,10 +132,7 @@ const Card: React.FC<Props> = ({
           <p>{statTitle6}</p>
           <p>{playerData.attributes.stat6}</p>
         </button>
-        <button className="flex justify-between bg-slate-50 p-2 rounded">
-          <p>{statTitle7}</p>
-          <p>{playerData.attributes.stat7}</p>
-        </button>
+        
       </div>
     </div>
   );

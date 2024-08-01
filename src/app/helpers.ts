@@ -22,7 +22,6 @@ interface playerCard {
     stat4: number;
     stat5: number;
     stat6: number;
-    stat7: number;
   };
 }
 

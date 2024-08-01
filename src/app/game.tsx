@@ -25,7 +25,6 @@ const Game = () => {
       stat4: number;
       stat5: number;
       stat6: number;
-      stat7: number;
     };
   }
   // interface shuffledCards {
@@ -55,7 +54,6 @@ const Game = () => {
           statTitle4={statTitles.statTitle4}
           statTitle5={statTitles.statTitle5}
           statTitle6={statTitles.statTitle6}
-          statTitle7={statTitles.statTitle7}
         />
       ) : (
         "Loading"
