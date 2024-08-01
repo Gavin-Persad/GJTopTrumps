@@ -4,7 +4,7 @@ export function sum(a: number, b: number): number {
 }
 
 // interface for player card
-interface playerCard {
+export interface playerCard {
   id: number;
   name: string;
   facts: {

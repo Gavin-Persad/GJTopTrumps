@@ -104,10 +104,10 @@ const Card: React.FC<Props> = ({
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">
-        <button className="flex justify-between bg-slate-50 p-2 rounded">
+        <div className="flex justify-between bg-slate-50 p-2 rounded col-start-1 col-end-3">
           <p>Overall</p>
           <p>{playerData.rating}</p>
-        </button>
+        </div>
         <button className="flex justify-between bg-slate-50 p-2 rounded">
           <p>{statTitle1}</p>
           <p>{playerData.attributes.stat1}</p>
@@ -132,7 +132,6 @@ const Card: React.FC<Props> = ({
           <p>{statTitle6}</p>
           <p>{playerData.attributes.stat6}</p>
         </button>
-        
       </div>
     </div>
   );
