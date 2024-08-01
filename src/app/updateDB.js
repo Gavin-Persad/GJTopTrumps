@@ -1,7 +1,7 @@
 import fs from "fs";
 
 export async function updateDB() {
-  let response = await fillDatabaseWithPlayers("male", 10);
+  let response = await fillDatabaseWithPlayers("male", 20);
   let data = JSON.stringify(response);
 
   fs.writeFile("playerDatabase.json", data, (err) => {
@@ -15,7 +15,7 @@ export async function updateDB() {
 }
 
 // function to fill database with choice of gender and how many cards
-const API_KEY = "";
+const API_KEY = "0e17b684-37b5-40fb-9c4a-ebe7373df100";
 async function fillDatabaseWithPlayers(gender, totalNum) {
   let pageCount = 48;
   let playerCount = 0;
@@ -49,11 +49,13 @@ async function fillDatabaseWithPlayers(gender, totalNum) {
               name: data.items[i].name,
               facts: {
                 age: data.items[i].age,
-                country: await getPlayerNationImage(data.items[i].nation),
+                country: data.items[i].nation,
                 position: data.items[i].position,
-                club: await getPlayerClubImage(data.items[i].club),
+                club: data.items[i].club,
               },
-              image: await getPlayerImage(data.items[i].id),
+              // image: await getPlayerImage(data.items[i].id),
+              image: data.items[i].id,
+
               rating: data.items[i].rating,
               attributes: {
                 stat1: data.items[i].pace,

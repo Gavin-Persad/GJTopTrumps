@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 interface Props {
   statTitle1: string;
@@ -13,11 +13,11 @@ interface Props {
     name: string;
     facts: {
       age: number;
-      country: string;
+      country: number;
       position: string;
-      club: string;
+      club: number;
     };
-    image: string;
+    image: number;
     rating: number;
     attributes: {
       stat1: number;
@@ -41,18 +41,66 @@ const Card: React.FC<Props> = ({
   statTitle7,
   playerData,
 }) => {
-  return (
-    <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg">
+  const [playerImageSrc, setPlayerImageSrc] = useState<string>("");
+  const [playerClubSrc, setPlayerClubSrc] = useState<string>("");
+  const [playerNationSrc, setPlayerNationSrc] = useState<string>("");
+
+  const API_KEY = "0e17b684-37b5-40fb-9c4a-ebe7373df100";
+
+  useEffect(() => {
+    const fetchImage = async (id: number, imageType: string) => {
+      try {
+        const response = await fetch(
+          `https://futdb.app/api/${imageType}/${id}/image`,
+          {
+            headers: { "X-AUTH-TOKEN": API_KEY },
+          }
+        ); // Replace with your API endpoint
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        if (imageType === "players") {
+          setPlayerImageSrc(imageUrl);
+        } else if (imageType === "clubs") {
+          setPlayerClubSrc(imageUrl);
+        } else {
+          setPlayerNationSrc(imageUrl);
+        }
+      } catch (error) {
+        console.error("Error fetching the image:", error);
+      }
+    };
+
+    fetchImage(playerData.id, "players");
+    fetchImage(playerData.facts.club, "clubs");
+    fetchImage(playerData.facts.country, "nations");
+
+    // Clean up the object URL when the component is unmounted
+    return () => {
+      if (playerImageSrc) {
+        URL.revokeObjectURL(playerImageSrc);
+        URL.revokeObjectURL(playerClubSrc);
+        URL.revokeObjectURL(playerNationSrc);
+      }
+    };
+  }, []);
+
+  //127.0.0.1:5501/f71c5480-ee00-4b36-a691-27ecdd2dd68f
+
+  http: return (
+    <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-80">
       <div className="flex gap-4">
         <h1 className="flex-1 text-2xl">{playerData.name}</h1>
         <p className="text-2xl">{playerData.facts.position}</p>
         <p className="text-2xl">{playerData.facts.age}</p>
       </div>
       <div className="relative h-64 w-full">
-        <img src={playerData.image} className="h-full w-full"></img>
-        <div className="absolute bottom-0 right-0 flex gap-4 m-2">
-          <p className="">{playerData.facts.club}</p>
-          <p>{playerData.facts.country}</p>
+        <img src={playerImageSrc} className="h-full w-full"></img>
+        <div className="absolute top-0 -right-2 flex flex-col gap-4 m-2 w-12">
+          <img src={playerClubSrc} className=""></img>
+          <img src={playerNationSrc} className=""></img>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">

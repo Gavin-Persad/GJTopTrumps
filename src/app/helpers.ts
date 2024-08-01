@@ -9,11 +9,11 @@ interface playerCard {
   name: string;
   facts: {
     age: number;
-    country: string;
+    country: number;
     position: string;
-    club: string;
+    club: number;
   };
-  image: string;
+  image: number;
   rating: number;
   attributes: {
     stat1: number;

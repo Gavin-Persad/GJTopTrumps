@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
 import { shuffleAndSplitCards } from "./helpers";
-import { footballPlayerData, statTitles } from "./playerData";
+import { statTitles } from "./playerData";
 import databaseCards from "../../playerDatabase.json";
 
 const Game = () => {
@@ -12,11 +12,11 @@ const Game = () => {
     name: string;
     facts: {
       age: number;
-      country: string;
+      country: number; // country id num
       position: string;
-      club: string;
+      club: number; // club id number
     };
-    image: string;
+    image: number; // player id number
     rating: number;
     attributes: {
       stat1: number;
@@ -58,7 +58,7 @@ const Game = () => {
           statTitle7={statTitles.statTitle7}
         />
       ) : (
-        "empty"
+        "Loading"
       )}
     </div>
   );
