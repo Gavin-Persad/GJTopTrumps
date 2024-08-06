@@ -9,8 +9,6 @@ import databaseCards from "../../playerDatabase.json";
 const Game = () => {
   const [playerCards, setPlayerCards] = useState<playerCard[]>([]);
   const [computerCards, setComputerCards] = useState<playerCard[]>([]);
-  const [playerActiveCard, setPlayerActiveCard] = useState<playerCard>();
-  const [computerActiveCard, setComputerActiveCard] = useState<playerCard>();
   const [statClicked, setStatClicked] = useState<string>("");
 
   // on page load useEffect[], shuffle (x) cards
@@ -20,8 +18,6 @@ const Game = () => {
     // assign player and computer cards (state arrays)
     setPlayerCards(allShuffledCards.playerCards);
     setComputerCards(allShuffledCards.computerCards);
-    // display 1st player card
-    setActiveCards();
   }, []);
 
   // func to compare stat clicked to active Computer card same stat
@@ -34,15 +30,29 @@ const Game = () => {
         `Player wins! Player had ${
           playerCards[0].attributes[`${stat}`]
         } - Computer had ${computerCards[0].attributes[`${stat}`]}`
+
       );
+//! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
+      const playerCard: playerCard = playerCards.shift()!;
+      const computerCard: playerCard = computerCards.shift()!;
+      setComputerCards([...computerCards]);
+      setPlayerCards([...playerCards, playerCard, computerCard]); 
+
     } else {
       console.log(
         `Computer wins! Player had ${
           playerCards[0].attributes[`${stat}`]
         } - Computer had ${computerCards[0].attributes[`${stat}`]}`
       );
+//! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
+      const playerCard: playerCard = playerCards.shift()!;
+      const computerCard: playerCard = computerCards.shift()!;
+      setPlayerCards([...playerCards]);
+      setComputerCards([...computerCards, playerCard, computerCard]);
+      
     }
-    // console.log(playerCards[0].attributes["stat1"]);
+
+
   }
 
   useEffect(() => {
@@ -55,16 +65,6 @@ const Game = () => {
     }
   }, [statClicked]);
 
-  // function to set active player and pc cards
-  function setActiveCards() {
-    setPlayerActiveCard(playerCards[0]);
-    setComputerActiveCard(computerCards[0]);
-  }
-
-  // add card to array of winner
-  function addToDeck() {}
-
-  // useEffect to fire after array change?
 
   return (
     <div>
