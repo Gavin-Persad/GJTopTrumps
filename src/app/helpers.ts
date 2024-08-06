@@ -3,6 +3,10 @@ export function sum(a: number, b: number): number {
   return a + b;
 }
 
+export interface Attributes {
+  [key: string]: number;
+}
+
 // interface for player card
 export interface playerCard {
   id: number;
@@ -15,14 +19,7 @@ export interface playerCard {
   };
   image: number;
   rating: number;
-  attributes: {
-    stat1: number;
-    stat2: number;
-    stat3: number;
-    stat4: number;
-    stat5: number;
-    stat6: number;
-  };
+  attributes: Attributes;
 }
 
 // shuffle and split cards  (player and computer)
