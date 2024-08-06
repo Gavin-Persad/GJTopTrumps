@@ -10,6 +10,7 @@ const Game = () => {
   const [playerCards, setPlayerCards] = useState<playerCard[]>([]);
   const [computerCards, setComputerCards] = useState<playerCard[]>([]);
   const [statClicked, setStatClicked] = useState<string>("");
+  const [gameEnded, setGameEnded] = useState<boolean>(false);
 
   // on page load useEffect[], shuffle (x) cards
   useEffect(() => {
@@ -30,45 +31,48 @@ const Game = () => {
         `Player wins! Player had ${
           playerCards[0].attributes[`${stat}`]
         } - Computer had ${computerCards[0].attributes[`${stat}`]}`
-
       );
-//! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
+      //! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
       const playerCard: playerCard = playerCards.shift()!;
       const computerCard: playerCard = computerCards.shift()!;
       setComputerCards([...computerCards]);
-      setPlayerCards([...playerCards, playerCard, computerCard]); 
-
+      setPlayerCards([...playerCards, playerCard, computerCard]);
+      if (computerCards.length === 0) {
+        setGameEnded(true);
+      }
     } else {
       console.log(
         `Computer wins! Player had ${
           playerCards[0].attributes[`${stat}`]
         } - Computer had ${computerCards[0].attributes[`${stat}`]}`
       );
-//! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
+      //! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
       const playerCard: playerCard = playerCards.shift()!;
       const computerCard: playerCard = computerCards.shift()!;
       setPlayerCards([...playerCards]);
       setComputerCards([...computerCards, playerCard, computerCard]);
-      
+      if (playerCards.length === 0) {
+        setGameEnded(true);
+      }
     }
-
-
   }
+
+  console.log(playerCards);
+  console.log(computerCards);
 
   useEffect(() => {
     // console.log(playerCards);
     if (statClicked.length > 0) {
-      console.log(
-        `stat clicked = ${statClicked} which is of type ${typeof statClicked}`
-      );
+      // console.log(
+      //   `stat clicked = ${statClicked} which is of type ${typeof statClicked}`
+      // );
       handleCompare(statClicked);
     }
   }, [statClicked]);
 
-
   return (
     <div>
-      {playerCards.length > 0 ? (
+      {playerCards.length > 0 && !gameEnded ? (
         <Card
           playerData={playerCards[0]}
           statTitle1={statTitles.statTitle1}
@@ -81,6 +85,10 @@ const Game = () => {
             return setStatClicked(stat);
           }}
         />
+      ) : playerCards.length === 0 && gameEnded ? (
+        "Computer Wins"
+      ) : computerCards.length === 0 && gameEnded ? (
+        "Player Wins"
       ) : (
         "Loading"
       )}

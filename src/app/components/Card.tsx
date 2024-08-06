@@ -86,7 +86,7 @@ const Card: React.FC<Props> = ({
   //127.0.0.1:5501/f71c5480-ee00-4b36-a691-27ecdd2dd68f
   const handleStatClick = (e: any) => {
     setStatClicked(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   // onClick={handleCompare('stat1')}>Compare {footballPlayerData[0][0].statTitle1}
