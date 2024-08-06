@@ -11,6 +11,7 @@ const Game = () => {
   const [computerCards, setComputerCards] = useState<playerCard[]>([]);
   const [statClicked, setStatClicked] = useState<string>("");
   const [gameEnded, setGameEnded] = useState<boolean>(false);
+  let [rounds, setRounds] = useState<number>(0);
 
   // on page load useEffect[], shuffle (x) cards
   useEffect(() => {
@@ -55,11 +56,13 @@ const Game = () => {
         setGameEnded(true);
       }
     }
+    setStatClicked("");
   }
 
-  console.log(playerCards);
-  console.log(computerCards);
+  // console.log(playerCards);
+  // console.log(computerCards);
 
+  // potential of double render because of resetting stat click in handlecompare func
   useEffect(() => {
     // console.log(playerCards);
     if (statClicked.length > 0) {
