@@ -3,9 +3,9 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from "jest";
+import type { Config } from "@jest/types";
 
-const config: Config = {
+const config: Config.InitialOptions = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -137,7 +137,7 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -146,7 +146,7 @@ const config: Config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -175,13 +175,13 @@ const config: Config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
-
+  transform:  {
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.jsx?$': 'babel-jest',
+  },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "\\\\node_modules\\\\",
-  //   "\\.pnp\\.[^\\\\]+$"
-  // ],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

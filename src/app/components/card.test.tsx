@@ -16,5 +16,5 @@ render(<Card
     statTitle6={statTitles.statTitle6}
     />);
 const h1Element = screen.getByRole('heading', { level: 1 });
-expect(h1Element).not.toBeNull();
+expect(h1Element).toBeInTheDocument();
 });
