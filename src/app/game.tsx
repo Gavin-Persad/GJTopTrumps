@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
+import ComputerCard from "./components/computerCard";
 import { playerCard, shuffleAndSplitCards } from "./helpers";
 import { statTitles } from "./playerData";
 import databaseCards from "../../playerDatabase.json";
@@ -74,28 +75,45 @@ const Game = () => {
   }, [statClicked]);
 
   return (
-    <div>
-      {playerCards.length > 0 && !gameEnded ? (
-        <Card
-          playerData={playerCards[0]}
-          statTitle1={statTitles.statTitle1}
-          statTitle2={statTitles.statTitle2}
-          statTitle3={statTitles.statTitle3}
-          statTitle4={statTitles.statTitle4}
-          statTitle5={statTitles.statTitle5}
-          statTitle6={statTitles.statTitle6}
-          setStatClicked={(stat: string) => {
-            return setStatClicked(stat);
-          }}
-        />
-      ) : playerCards.length === 0 && gameEnded ? (
-        "Computer Wins"
-      ) : computerCards.length === 0 && gameEnded ? (
-        "Player Wins"
-      ) : (
-        "Loading"
-      )}
-    </div>
+    <>
+      <div>
+        {playerCards.length > 0 && !gameEnded ? (
+          <Card
+            playerData={playerCards[0]}
+            statTitle1={statTitles.statTitle1}
+            statTitle2={statTitles.statTitle2}
+            statTitle3={statTitles.statTitle3}
+            statTitle4={statTitles.statTitle4}
+            statTitle5={statTitles.statTitle5}
+            statTitle6={statTitles.statTitle6}
+            setStatClicked={(stat: string) => {
+              return setStatClicked(stat);
+            }}
+          />
+        ) : playerCards.length === 0 && gameEnded ? (
+          "Computer Wins"
+        ) : computerCards.length === 0 && gameEnded ? (
+          "Player Wins"
+        ) : (
+          "Loading"
+        )}
+      </div>
+      <div>
+        {computerCards.length > 0 && !gameEnded ? (
+          <ComputerCard
+            playerData={computerCards[0]}
+            statTitle1={statTitles.statTitle1}
+            statTitle2={statTitles.statTitle2}
+            statTitle3={statTitles.statTitle3}
+            statTitle4={statTitles.statTitle4}
+            statTitle5={statTitles.statTitle5}
+            statTitle6={statTitles.statTitle6}
+          />
+        ) : (
+          "test"
+        )}
+      </div>
+    </>
   );
 };
 
