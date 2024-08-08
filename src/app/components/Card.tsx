@@ -41,47 +41,48 @@ const Card: React.FC<Props> = ({
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY as string;
 
   useEffect(() => {
-    const fetchImage = async (id: number, imageType: string) => {
-      const headers: HeadersInit = {
-        "X-AUTH-TOKEN": API_KEY, // replace with your actual auth token
-      };
-      try {
-        const response = await fetch(
-          `https://futdb.app/api/${imageType}/${id}/image`,
-          {
-            headers: headers,
-          }
-        ); // Replace with your API endpoint
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const blob = await response.blob();
-        const imageUrl = URL.createObjectURL(blob);
-        if (imageType === "players") {
-          setPlayerImageSrc(imageUrl);
-        } else if (imageType === "clubs") {
-          setPlayerClubSrc(imageUrl);
-        } else {
-          setPlayerNationSrc(imageUrl);
-        }
-      } catch (error) {
-        console.error("Error fetching the image:", error);
-      }
-    };
-
+    // const fetchImage = async (id: number, imageType: string) => {
+    //   const headers: HeadersInit = {
+    //     "X-AUTH-TOKEN": API_KEY, // replace with your actual auth token
+    //   };
+    //   try {
+    //     const response = await fetch(
+    //       `https://futdb.app/api/${imageType}/${id}/image`,
+    //       {
+    //         headers: headers,
+    //       }
+    //     ); // Replace with your API endpoint
+    //     if (!response.ok) {
+    //       throw new Error("Network response was not ok");
+    //     }
+    //     const blob = await response.blob();
+    //     const imageUrl = URL.createObjectURL(blob);
+    //     if (imageType === "players") {
+    //       setPlayerImageSrc(imageUrl);
+    //     } else if (imageType === "clubs") {
+    //       setPlayerClubSrc(imageUrl);
+    //     } else {
+    //       setPlayerNationSrc(imageUrl);
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching the image:", error);
+    //   }
+    // };
+    setPlayerClubSrc(`/clubImages/${playerData.facts.club}.png`);
+    setPlayerNationSrc(`/nationImages/${playerData.facts.country}.png`);
     // fetchImage(playerData.id, "players");
     // fetchImage(playerData.facts.club, "clubs");
     // fetchImage(playerData.facts.country, "nations");
 
     // Clean up the object URL when the component is unmounted
     return () => {
-      if (playerImageSrc) {
-        URL.revokeObjectURL(playerImageSrc);
-        URL.revokeObjectURL(playerClubSrc);
-        URL.revokeObjectURL(playerNationSrc);
-      }
+      // if (playerImageSrc) {
+      //   URL.revokeObjectURL(playerImageSrc);
+      //   URL.revokeObjectURL(playerClubSrc);
+      //   URL.revokeObjectURL(playerNationSrc);
+      // }
     };
-  }, []);
+  }, [playerData]);
 
   //127.0.0.1:5501/f71c5480-ee00-4b36-a691-27ecdd2dd68f
   const handleStatClick = (e: any) => {

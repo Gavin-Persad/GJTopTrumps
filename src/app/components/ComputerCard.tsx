@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Attributes } from "../helpers";
 
@@ -33,9 +33,14 @@ const ComputerCard: React.FC<Props> = ({
   statTitle6,
   playerData,
 }) => {
-  const [playerImageSrc, setPlayerImageSrc] = useState<string>("");
-  const [playerClubSrc, setPlayerClubSrc] = useState<string>("");
-  const [playerNationSrc, setPlayerNationSrc] = useState<string>("");
+  const [computerImageSrc, setComputerImageSrc] = useState<string>("");
+  const [computerClubSrc, setComputerClubSrc] = useState<string>("");
+  const [computerNationSrc, setComputerNationSrc] = useState<string>("");
+
+  useEffect(() => {
+    setComputerClubSrc(`/clubImages/${playerData.facts.club}.png`);
+    setComputerNationSrc(`/nationImages/${playerData.facts.country}.png`);
+  }, [playerData]);
 
   return (
     <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-90">
@@ -45,10 +50,10 @@ const ComputerCard: React.FC<Props> = ({
         <p className="text-2xl">{playerData.facts.age}</p>
       </div>
       <div className="relative h-64 w-full">
-        <img src={playerImageSrc} className="h-full w-full"></img>
+        <img src={computerImageSrc} className="h-full w-full"></img>
         <div className="absolute top-0 -right-2 flex flex-col gap-4 m-2 w-12">
-          <img src={playerClubSrc} className=""></img>
-          <img src={playerNationSrc} className=""></img>
+          <img src={computerClubSrc} className=""></img>
+          <img src={computerNationSrc} className=""></img>
         </div>
       </div>
       <div className="grid grid-cols-6 gap-2">
