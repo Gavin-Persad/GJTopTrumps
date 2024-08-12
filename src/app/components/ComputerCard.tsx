@@ -40,64 +40,70 @@ const ComputerCard: React.FC<Props> = ({
   useEffect(() => {
     setComputerClubSrc(`/clubImages/${playerData.facts.club}.png`);
     setComputerNationSrc(`/nationImages/${playerData.facts.country}.png`);
+    setComputerImageSrc("/avatar.jpg");
   }, [playerData]);
 
   return (
-    <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-90">
-      <div className="flex gap-4">
-        <h1 className="flex-1 text-2xl">{playerData.name}</h1>
-        <p className="text-2xl">{playerData.facts.position}</p>
-        <p className="text-2xl">{playerData.facts.age}</p>
+    <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto">
+      <div className="flex w-full justify-center ">
+        <img src={computerImageSrc} className="h-30 w-30"></img>
       </div>
-      <div className="relative h-64 w-full">
-        <img src={computerImageSrc} className="h-full w-full"></img>
-        <div className="absolute top-0 -right-2 flex flex-col gap-4 m-2 w-12">
-          <img src={computerClubSrc} className=""></img>
-          <img src={computerNationSrc} className=""></img>
-        </div>
+      {/* <div className="flex gap-4">
+        <h1 className="flex-1 text-xl">{playerData.name}</h1>
+        <p className="text-xl">{playerData.facts.position}</p>
+        <p className="text-xl">{playerData.facts.age}</p>
       </div>
-      <div className="grid grid-cols-6 gap-2">
-        <div className="flex justify-between bg-slate-50 p-2 rounded col-span-6">
-          <p>Overall</p>
-          <p>{playerData.rating}</p>
+      <div className="flex w-full ">
+        <img src={computerImageSrc} className="h-20 w-20"></img>
+        <div className="grid flex-1 py-4">
+          <div className="flex gap-2 justify-center items-center">
+            <img src={computerClubSrc} className="w-16 h-16"></img>
+            <img src={computerNationSrc} className="w-16 h-12"></img>
+          </div>
+          <div className="flex justify-center items-center gap-4">
+            <p className="text-2xl">Overall</p>
+            <p className="text-2xl">{playerData.rating}</p>
+          </div>
         </div>
-        <button className="bg-slate-50 p-1 rounded col-span-4" value="stat1">
+      </div> */}
+      {/* <div className="grid grid-cols-6 gap-1">
+        <button className="bg-slate-50 p-1 rounded col-span-2" value="stat1">
           {statTitle1}
         </button>
-        <p className="col-span-2 p-1 rounded bg-slate-50 text-center">
+        <p className=" p-1 rounded bg-slate-50 text-center">
           {playerData.attributes.stat1}
         </p>
-        <button className="bg-slate-50 p-1 rounded col-span-4" value="stat2">
+        <button className="bg-slate-50 p-1 rounded col-span-2" value="stat2">
           {statTitle2}
         </button>
-        <p className="col-span-2 p-1 rounded bg-slate-50 text-center">
+        <p className=" p-1 rounded bg-slate-50 text-center">
           {playerData.attributes.stat2}
         </p>
-        <button className="bg-slate-50 p-1 rounded col-span-4" value="stat3">
+        <button className="bg-slate-50 p-1 rounded col-span-2" value="stat3">
           {statTitle3}
         </button>
-        <p className="col-span-2 p-1 rounded bg-slate-50 text-center">
+        <p className=" p-1 rounded bg-slate-50 text-center">
           {playerData.attributes.stat3}
         </p>
-        <button className="bg-slate-50 p-1 rounded col-span-4" value="stat4">
+        <button className="bg-slate-50 p-1 rounded col-span-2" value="stat4">
           {statTitle4}
         </button>
-        <p className="col-span-2 p-1 rounded bg-slate-50 text-center">
+        <p className=" p-1 rounded bg-slate-50 text-center">
           {playerData.attributes.stat4}
         </p>
-        <button className="bg-slate-50 p-1 rounded col-span-4" value="stat5">
+        <button className="bg-slate-50 p-1 rounded col-span-2" value="stat5">
           {statTitle5}
         </button>
-        <p className="col-span-2 p-1 rounded bg-slate-50 text-center">
+        <p className=" p-1 rounded bg-slate-50 text-center">
           {playerData.attributes.stat5}
         </p>
-        <button className="bg-slate-50 p-1 rounded col-span-4" value="stat6">
+        <button className="bg-slate-50 p-1 rounded col-span-2" value="stat6">
           {statTitle6}
         </button>
-        <p className="col-span-2 p-1 rounded bg-slate-50 text-center">
+        <p className=" p-1 rounded bg-slate-50 text-center">
           {playerData.attributes.stat6}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };
