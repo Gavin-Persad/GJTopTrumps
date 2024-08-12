@@ -86,8 +86,10 @@ const Card: React.FC<Props> = ({
   }, [playerData]);
 
   //127.0.0.1:5501/f71c5480-ee00-4b36-a691-27ecdd2dd68f
+  // set timeout here delays the game slightly
   const handleStatClick = (e: any) => {
     setStatClicked(e.target.value);
+
     // console.log(e.target.value);
   };
 
