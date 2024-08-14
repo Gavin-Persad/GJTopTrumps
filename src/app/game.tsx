@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Card from "./components/Card";
-import ComputerCard from "./components/computerCard";
+import ComputerCard from "./components/ComputerCard";
 import { playerCard, shuffleAndSplitCards } from "./helpers";
 import { statTitles } from "./playerData";
 import databaseCards from "../../playerDatabase.json";
