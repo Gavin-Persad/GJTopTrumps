@@ -38,62 +38,20 @@ const Card: React.FC<Props> = ({
   const [playerClubSrc, setPlayerClubSrc] = useState<string>("");
   const [playerNationSrc, setPlayerNationSrc] = useState<string>("");
 
-  const API_KEY = process.env.NEXT_PUBLIC_API_KEY as string;
+  // const API_KEY = process.env.NEXT_PUBLIC_API_KEY as string;
 
+  // change/set player images when playerData changes
   useEffect(() => {
-    // const fetchImage = async (id: number, imageType: string) => {
-    //   const headers: HeadersInit = {
-    //     "X-AUTH-TOKEN": API_KEY, // replace with your actual auth token
-    //   };
-    //   try {
-    //     const response = await fetch(
-    //       `https://futdb.app/api/${imageType}/${id}/image`,
-    //       {
-    //         headers: headers,
-    //       }
-    //     ); // Replace with your API endpoint
-    //     if (!response.ok) {
-    //       throw new Error("Network response was not ok");
-    //     }
-    //     const blob = await response.blob();
-    //     const imageUrl = URL.createObjectURL(blob);
-    //     if (imageType === "players") {
-    //       setPlayerImageSrc(imageUrl);
-    //     } else if (imageType === "clubs") {
-    //       setPlayerClubSrc(imageUrl);
-    //     } else {
-    //       setPlayerNationSrc(imageUrl);
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching the image:", error);
-    //   }
-    // };
     setPlayerClubSrc(`/clubImages/${playerData.facts.club}.png`);
     setPlayerNationSrc(`/nationImages/${playerData.facts.country}.png`);
     setPlayerImageSrc(`playerImages/${playerData.image}.png`);
-    // fetchImage(playerData.id, "players");
-    // fetchImage(playerData.facts.club, "clubs");
-    // fetchImage(playerData.facts.country, "nations");
-
-    // Clean up the object URL when the component is unmounted
-    return () => {
-      // if (playerImageSrc) {
-      //   URL.revokeObjectURL(playerImageSrc);
-      //   URL.revokeObjectURL(playerClubSrc);
-      //   URL.revokeObjectURL(playerNationSrc);
-      // }
-    };
+    return () => {};
   }, [playerData]);
 
-  //127.0.0.1:5501/f71c5480-ee00-4b36-a691-27ecdd2dd68f
-  // set timeout here delays the game slightly
+  // handle the stat click
   const handleStatClick = (e: any) => {
     setStatClicked(e.target.value);
-
-    // console.log(e.target.value);
   };
-
-  // onClick={handleCompare('stat1')}>Compare {footballPlayerData[0][0].statTitle1}
 
   http: return (
     <div className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-90 max-h-96">

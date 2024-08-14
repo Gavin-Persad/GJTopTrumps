@@ -12,7 +12,6 @@ const Game = () => {
   const [computerCards, setComputerCards] = useState<playerCard[]>([]);
   const [statClicked, setStatClicked] = useState<string>("");
   const [gameEnded, setGameEnded] = useState<boolean>(false);
-  let [rounds, setRounds] = useState<number>(0);
 
   // on page load useEffect[], shuffle (x) cards
   useEffect(() => {
@@ -54,7 +53,6 @@ const Game = () => {
         if (computerCards.length === 0) {
           setGameEnded(true);
         }
-        // result = "win";
       } else {
         console.log(
           `Computer wins! Player had ${
@@ -69,7 +67,6 @@ const Game = () => {
         if (playerCards.length === 0) {
           setGameEnded(true);
         }
-        // result = "loss";
       }
     }, 2000);
 
@@ -86,7 +83,10 @@ const Game = () => {
       // flip card green bg
       pcCard.className =
         "grid gap-4 bg-green-600 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
-      playerImg.setAttribute("src", "/test.jpg");
+      playerImg.setAttribute(
+        "src",
+        `/playerImages/${computerCards[0].image}.png`
+      );
       setTimeout(() => {
         pcCard.className =
           "grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
@@ -95,7 +95,10 @@ const Game = () => {
     } else {
       pcCard.className =
         "grid gap-4 bg-red-600 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
-      playerImg.setAttribute("src", "/test.jpg");
+      playerImg.setAttribute(
+        "src",
+        `/playerImages/${computerCards[0].image}.png`
+      );
 
       setTimeout(() => {
         pcCard.className =
@@ -105,17 +108,8 @@ const Game = () => {
     }
   }
 
-  // console.log(playerCards);
-  // console.log(computerCards);
-
-  // potential of double render because of resetting stat click in handlecompare func
   useEffect(() => {
-    // console.log(playerCards);
     if (statClicked.length > 0) {
-      // console.log(
-      //   `stat clicked = ${statClicked} which is of type ${typeof statClicked}`
-      // );
-
       handleCompare(statClicked);
     }
   }, [statClicked]);
