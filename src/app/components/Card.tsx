@@ -70,7 +70,7 @@ const Card: React.FC<Props> = ({
     // };
     setPlayerClubSrc(`/clubImages/${playerData.facts.club}.png`);
     setPlayerNationSrc(`/nationImages/${playerData.facts.country}.png`);
-    setPlayerImageSrc("/avatar.jpg");
+    setPlayerImageSrc(`playerImages/${playerData.image}.png`);
     // fetchImage(playerData.id, "players");
     // fetchImage(playerData.facts.club, "clubs");
     // fetchImage(playerData.facts.country, "nations");

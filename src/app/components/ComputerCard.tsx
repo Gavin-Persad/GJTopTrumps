@@ -40,7 +40,7 @@ const ComputerCard: React.FC<Props> = ({
   useEffect(() => {
     setComputerClubSrc(`/clubImages/${playerData.facts.club}.png`);
     setComputerNationSrc(`/nationImages/${playerData.facts.country}.png`);
-    setComputerImageSrc("/avatar.jpg");
+  setComputerImageSrc(`playerImages/${playerData.image}.png`);
   }, [playerData]);
 
   return (
