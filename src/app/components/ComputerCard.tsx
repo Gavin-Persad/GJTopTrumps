@@ -48,8 +48,14 @@ const ComputerCard: React.FC<Props> = ({
       className="grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto"
       id="pcCard"
     >
-      <div className="flex w-full justify-center ">
-        <img id="playerIMG" src={computerImageSrc} className="h-30 w-30"></img>
+      <div>
+        <div id="playerNameAndPos" className="hidden">
+          <h1 className="text-xl">{playerData.name}</h1>
+          <p className="text-xl">{playerData.facts.position}</p>
+        </div>
+        <div className="flex w-full justify-center ">
+          <img id="playerIMG" src={computerImageSrc} className="h-30 w-30"></img>
+        </div>
       </div>
     </div>
   );

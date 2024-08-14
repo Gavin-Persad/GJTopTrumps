@@ -75,38 +75,75 @@ const Game = () => {
     setStatClicked("");
     revealPcCard(result);
   }
+
+
   // https://codepen.io/edeesims/pen/wvpYWW
+
+
   function revealPcCard(result: string) {
+
     const pcCard = document.getElementById("pcCard")!;
     const playerImg = document.getElementById("playerIMG")!;
+    const playerNameAndPos = document.getElementById("playerNameAndPos")!;
+    
     if (result === "win") {
+
       // flip card green bg
+      
       pcCard.className =
         "grid gap-4 bg-green-600 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
-      playerImg.setAttribute(
+      
+       playerImg.setAttribute(
         "src",
         `/playerImages/${computerCards[0].image}.png`
       );
+      
+      playerNameAndPos.className = "visible"; 
+
       setTimeout(() => {
+
         pcCard.className =
           "grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
+        
         playerImg.setAttribute("src", "/avatar.jpg");
-      }, 2000);
+        
+        playerNameAndPos.className =
+        "hidden";
+
+      }, 
+      
+      2000);
+
     } else {
+
       pcCard.className =
         "grid gap-4 bg-red-600 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
-      playerImg.setAttribute(
+      
+        playerImg.setAttribute(
         "src",
         `/playerImages/${computerCards[0].image}.png`
       );
 
+      playerNameAndPos.className = "visible";
+
       setTimeout(() => {
+
         pcCard.className =
           "grid gap-4 bg-slate-300 p-4 m-4 rounded-lg max-w-40 max-h-48 m-auto";
+        
         playerImg.setAttribute("src", "/avatar.jpg");
-      }, 2000);
+        
+        playerNameAndPos.className =
+        "hidden";
+
+      }, 
+      
+      2000);
+
     }
+
   }
+
 
   useEffect(() => {
     if (statClicked.length > 0) {
