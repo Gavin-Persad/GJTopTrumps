@@ -188,7 +188,7 @@ const Game = () => {
         ) : computerCards.length === 0 && gameEnded ? (
           "Player Wins"
         ) : (
-          "Loading"
+          "Loading..."
         )}
       </div>
       <div>
@@ -203,7 +203,7 @@ const Game = () => {
             statTitle6={statTitles.statTitle6}
           />
         ) : (
-          "Loading"
+          null
         )}
       </div>
     </>
