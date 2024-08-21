@@ -34,6 +34,7 @@ const Card: React.FC<Props> = ({
   playerData,
   setStatClicked,
 }) => {
+  
   const [playerImageSrc, setPlayerImageSrc] = useState<string>("");
   const [playerClubSrc, setPlayerClubSrc] = useState<string>("");
   const [playerNationSrc, setPlayerNationSrc] = useState<string>("");

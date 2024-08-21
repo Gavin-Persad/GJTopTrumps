@@ -33,6 +33,7 @@ const ComputerCard: React.FC<Props> = ({
   statTitle6,
   playerData,
 }) => {
+  
   const [computerImageSrc, setComputerImageSrc] = useState<string>("");
   const [computerClubSrc, setComputerClubSrc] = useState<string>("");
   const [computerNationSrc, setComputerNationSrc] = useState<string>("");

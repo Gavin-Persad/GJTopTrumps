@@ -15,8 +15,10 @@ const Game = () => {
 
   // on page load useEffect[], shuffle (x) cards
   useEffect(() => {
+
     // const stringifiedData = JSON.parse(databaseCards);
     const allShuffledCards = shuffleAndSplitCards(databaseCards);
+
     // assign player and computer cards (state arrays)
     setPlayerCards(allShuffledCards.playerCards);
     setComputerCards(allShuffledCards.computerCards);
@@ -24,7 +26,9 @@ const Game = () => {
 
   // func to compare stat clicked to active Computer card same stat
   let result = "";
+
   function handleCompare(stat: string) {
+
     if (
       playerCards[0].attributes[`${stat}`] >
       computerCards[0].attributes[`${stat}`]
@@ -33,9 +37,11 @@ const Game = () => {
     } else {
       result = "loss";
     }
+
     revealPcCard(result);
 
     setTimeout(() => {
+
       if (
         playerCards[0].attributes[`${stat}`] >
         computerCards[0].attributes[`${stat}`]
@@ -45,25 +51,32 @@ const Game = () => {
             playerCards[0].attributes[`${stat}`]
           } - Computer had ${computerCards[0].attributes[`${stat}`]}`
         );
+
         //! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
         const playerCard: playerCard = playerCards.shift()!;
         const computerCard: playerCard = computerCards.shift()!;
         setComputerCards([...computerCards]);
         setPlayerCards([...playerCards, playerCard, computerCard]);
+
         if (computerCards.length === 0) {
           setGameEnded(true);
         }
+
       } else {
+
         console.log(
           `Computer wins! Player had ${
             playerCards[0].attributes[`${stat}`]
           } - Computer had ${computerCards[0].attributes[`${stat}`]}`
         );
+
         //! in a non null assertion operator, the value is guaranteed to be non-null and non-undefined
         const playerCard: playerCard = playerCards.shift()!;
         const computerCard: playerCard = computerCards.shift()!;
+
         setPlayerCards([...playerCards]);
         setComputerCards([...computerCards, playerCard, computerCard]);
+        
         if (playerCards.length === 0) {
           setGameEnded(true);
         }
