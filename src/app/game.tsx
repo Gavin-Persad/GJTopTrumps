@@ -29,6 +29,7 @@ const Game = () => {
 
   function handleCompare(stat: string) {
 
+      // check for win or loss
     if (
       playerCards[0].attributes[`${stat}`] >
       computerCards[0].attributes[`${stat}`]
@@ -38,10 +39,12 @@ const Game = () => {
       result = "loss";
     }
 
+      // show computer card and win or loss
     revealPcCard(result);
 
     setTimeout(() => {
 
+      //
       if (
         playerCards[0].attributes[`${stat}`] >
         computerCards[0].attributes[`${stat}`]
@@ -200,7 +203,7 @@ const Game = () => {
             statTitle6={statTitles.statTitle6}
           />
         ) : (
-          "test"
+          "Loading"
         )}
       </div>
     </>
