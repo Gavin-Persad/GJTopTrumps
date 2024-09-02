@@ -3,11 +3,12 @@ export function sum(a: number, b: number): number {
   return a + b;
 }
 
+
+// Interfaces for player card data
 export interface Attributes {
   [key: string]: number;
 }
 
-// interface for player card
 export interface playerCard {
   id: number;
   name: string;
