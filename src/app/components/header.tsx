@@ -15,7 +15,7 @@ const toggleHowToPlay = () => {
     <>
       <header className="flex items-center bg-blue-700 justify-between p-4">
         <h1 className="">Top Trumps</h1>
-        <button className="rounded-full bg-white h-8 w-8" onClick={toggleHowToPlay}>ℹ️</button>
+        <button className="rounded-full bg-blue-700 text-white  border-2 border-white-500 rounded  h-8 w-8" onClick={toggleHowToPlay}>ℹ️</button>
       </header>
       {howToPlay && (
         <div className="bg-blue-700 text-white p-4">
